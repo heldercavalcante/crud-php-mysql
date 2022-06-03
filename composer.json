@@ -1,0 +1,16 @@
+{
+    "name": "helder-filho/store",
+    "type": "project",
+    "description": "Store",
+    "keywords": ["framework", "new"],
+    "license": "MIT",
+    "require": {
+        "symfony/var-dumper": "^5.3"
+    },
+    "autoload":{
+        "psr-4": {
+            "App\\": "App/",
+            "Framework\\": "Framework/"
+        }
+    }
+}

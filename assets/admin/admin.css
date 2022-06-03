@@ -1,0 +1,49 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(212, 123, 50);
+}
+
+
+header #logo {
+  max-height: 30px;
+}
+
+header a{
+  color: white;
+}
+
+#content{
+  margin: 0 auto;
+  max-width: 1200px;
+  text-align: left;
+}
+
+.form div{
+  padding: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table td {
+  border: 1px solid #ccc;
+}
+
+.table th {
+  background-color: #ccc;
+  border: 1px solid #666;
+}
+
+.small-blocked-image {
+  max-width: 100px;
+  max-height: 90px;
+  display: block;
+  margin-bottom: 10px;
+}
