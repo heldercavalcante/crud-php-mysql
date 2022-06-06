@@ -10,6 +10,14 @@
     <input type="text" name="name">
   </div>
   <div>
+      <label for="product_cat_id">Category</label>
+      <select name="product_cat_id">
+      <?php foreach ($categories as $category) {?>
+        <option value="<?php echo $category->cat_id?>"><?php echo $category->cat_name?></option>
+      <?php } ?>
+      </select>
+  </div>
+  <div>
     <label for="price">Price</label>
     <input type="text" name="price">
   </div>

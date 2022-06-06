@@ -11,14 +11,14 @@ class ProductsRepository implements \App\Repositories\IProductsRepository{
     $this->con = $con;
   }
 
-  public function create(string $imageUri,string $name,float $price,string $description) {
+  public function create(int $product_cat_id ,string $imageUri,string $name,float $price,string $description) {
     $name = addslashes($name);
     $price = addslashes($price);
     $description = addslashes($description);
     //$name = addslashes($name);
     $createdAt = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO products(name, price, description, image, created_at) VALUES('{$name}',{$price},'{$description}','{$imageUri}','{$createdAt}')";
+    $sql = "INSERT INTO products(product_cat_id ,name, price, description, image, created_at) VALUES({$product_cat_id},'{$name}',{$price},'{$description}','{$imageUri}','{$createdAt}')";
 
     $this->con->query($sql);
 
@@ -29,7 +29,7 @@ class ProductsRepository implements \App\Repositories\IProductsRepository{
   }
 
   public function listProducts(): array {
-    $sql = "SELECT * FROM products ORDER BY product_id DESC";
+    $sql = "SELECT product_id, product_cat_id, name, price, description, image, created_at, cat_name FROM products JOIN categories on categories.cat_id = products.product_cat_id ORDER BY product_id DESC";
     $result = $this->con->query($sql);
 
     if($this->con->error) {

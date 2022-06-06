@@ -9,7 +9,7 @@
   <?php foreach ($categories as $category) {?>
   <tr>
     <td><?php echo $category->cat_id?></td>
-    <td><?php echo $category->name?></td>
+    <td><?php echo $category->cat_name?></td>
     <td>
       [<a href="<?php echo App\Config\Config::url("/admin/categories/delete?id=".$category->cat_id)?>">Delete</a>]
       [<a href="<?php echo App\Config\Config::url("/admin/categories/edit?id=".$category->cat_id)?>">Edit</a>]

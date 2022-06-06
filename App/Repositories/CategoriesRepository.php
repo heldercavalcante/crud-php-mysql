@@ -14,7 +14,7 @@ class CategoriesRepository implements \App\Repositories\ICategoriesRepository{
   public function create(string $name) {
     $name = addslashes($name);
 
-    $sql = "INSERT INTO categories(name) VALUES('{$name}')";
+    $sql = "INSERT INTO categories(cat_name) VALUES('{$name}')";
 
     $this->con->query($sql);
 
@@ -69,7 +69,7 @@ class CategoriesRepository implements \App\Repositories\ICategoriesRepository{
 
     $name = addslashes($name);
 
-    $sql = "UPDATE categories SET name = '{$name}' WHERE cat_id = '{$id}'";
+    $sql = "UPDATE categories SET cat_name = '{$name}' WHERE cat_id = '{$id}'";
 
     $this->con->query($sql);
     if($this->con->error) {

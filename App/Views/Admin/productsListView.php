@@ -5,6 +5,7 @@
     <th>ID</th>
     <th>Image</th>
     <th>Name</th>
+    <th>Category</th>
     <th>Price</th>
     <th>Description</th>
     <th>Created At</th>
@@ -15,6 +16,7 @@
     <td><?php echo $product->product_id?></td>
     <td><img class="small-blocked-image" src="<?php echo \App\Config\Config::url($product->image)?>"></td>
     <td><?php echo $product->name?></td>
+    <td><?php echo $product->cat_name?></td>
     <td>R$ <?php echo number_format($product->price,2,',','.')?></td>
     <td><?php echo $product->description?></td>
     <td><?php echo date('d/m/Y H:i:s',strtotime($product->created_at))?></td>

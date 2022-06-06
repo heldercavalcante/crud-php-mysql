@@ -8,13 +8,20 @@ class ProductsController extends BaseController {
 
   //product form - create
   public function create() {
+    //list categories
+    $categoriesListRepository = new \App\Repositories\CategoriesRepository(\Framework\DB\Connection::getConnection());
+    $categoriesListService = new \App\Services\CategoriesListService($categoriesListRepository);
+    $categories = $categoriesListService->listCategories();
+
     $data['page'] = 'Admin/productCreateView';
+    $data['categories'] = $categories;
     $this->view('Admin/indexView', $data);
   }
 
   //recieve information from product form and perform it on database
   public function saveCreate() {
     $image = $_FILES['image'];
+    $product_cat_id = $_POST['product_cat_id'];
     $name = $_POST['name'];
     $price = (float) $_POST['price'];
     $description = $_POST['description'];
@@ -26,7 +33,7 @@ class ProductsController extends BaseController {
 
     $productCreateService = new \App\Services\ProductCreateService($productsRepository,$uploadService);
 
-    $productCreateService->create($image['name'],$image['tmp_name'], $name, $price, $description);
+    $productCreateService->create($product_cat_id ,$image['name'],$image['tmp_name'], $name, $price, $description);
     header("Location: ".\App\Config\Config::url("/admin/products/list-products"));
     } catch (\Exception $e) {
       echo "Error on create product: ".$e->getMessage();

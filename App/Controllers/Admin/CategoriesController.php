@@ -14,7 +14,7 @@ class CategoriesController extends BaseController {
 
   //recieve information from product form and perform it on database
   public function saveCreate() {
-    $name = $_POST['name'];
+    $name = $_POST['cat_name'];
     $categoriesRepository = new \App\Repositories\CategoriesRepository(\Framework\DB\Connection::getConnection());
 
     try{
@@ -68,7 +68,7 @@ class CategoriesController extends BaseController {
 
 
   public function saveEdit() {
-    $name = $_POST['name'];
+    $name = $_POST['cat_name'];
     $categoryId = $_GET['id'];
 
     $categoriesRepository = new \App\Repositories\CategoriesRepository(\Framework\DB\Connection::getConnection());

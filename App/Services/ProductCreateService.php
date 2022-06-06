@@ -12,7 +12,7 @@ class ProductCreateService {
     $this->uploadService = $uploadService;
   }
 
-  public function create(string $imageName,string $imagePath,string $name,float $price,string $description) {
+  public function create(int $product_cat_id,string $imageName,string $imagePath,string $name,float $price,string $description) {
     if (empty($name)) {
       throw new \Exception("invalid product name");
     }
@@ -36,6 +36,6 @@ class ProductCreateService {
 
     $imageUri = $this->uploadService->upload($imageName,$imagePath,\App\Config\Config::getFullUploadDir(),\App\Config\Config::$UPLOAD_IMAGE_ALLOWED_EXTENSIONS);
 
-    $this->productsRepository->create($imageUri, $name, $price, $description);
+    $this->productsRepository->create($product_cat_id ,$imageUri, $name, $price, $description);
   }
 }
