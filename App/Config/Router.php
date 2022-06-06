@@ -32,5 +32,14 @@ class Router {
     $router->post('/admin/products/edit/save', \App\Controllers\Admin\ProductsController::class, 'saveEdit');
 
 
+    //routers - categories
+    $router->get('/admin/categories/list-categories', \App\Controllers\Admin\CategoriesController::class, 'listCategories');
+    $router->get('/admin/categories/create', \App\Controllers\Admin\CategoriesController::class, 'create');
+    $router->post('/admin/categories/create/save', \App\Controllers\Admin\CategoriesController::class, 'saveCreate');
+    $router->get('/admin/categories/delete', \App\Controllers\Admin\CategoriesController::class, 'delete');
+    $router->get('/admin/categories/edit', \App\Controllers\Admin\CategoriesController::class, 'edit');
+    $router->post('/admin/categories/edit/save', \App\Controllers\Admin\CategoriesController::class, 'saveEdit');
+
+
   }
 }
